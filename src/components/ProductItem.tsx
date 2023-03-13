@@ -3,12 +3,16 @@ import { memo } from "react";
 
 type ProductItemProps = {
   product: Product;
+  onAddToWishList(id: number): void;
 };
 
-function ProductItemComponent({ product }: ProductItemProps) {
+function ProductItemComponent({ product, onAddToWishList }: ProductItemProps) {
   return (
     <div>
-      {product.title} - <strong>{product.price}</strong>
+      {product.title} - <strong>{product.formattedPrice}</strong>
+      <button onClick={() => onAddToWishList(product.id)}>
+        Add to wishlist
+      </button>
     </div>
   );
 }
