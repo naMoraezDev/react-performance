@@ -8,7 +8,7 @@ type Results = {
 
 export default function Home() {
   const [search, setSearch] = useState("");
-  const [results, setResults] = useState<Results>();
+  const [results, setResults] = useState<Results>({} as Results);
 
   async function handleSearch(event: FormEvent) {
     event.preventDefault();
@@ -60,8 +60,8 @@ export default function Home() {
         </form>
 
         <SearchResults
-          results={results?.data}
-          totalPrice={results?.totalPrice}
+          results={results.data}
+          totalPrice={results.totalPrice}
           onAddToWishList={addToWishList}
         />
       </div>
